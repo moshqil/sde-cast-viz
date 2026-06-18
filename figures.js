@@ -35,6 +35,22 @@ const FIGURES = [
     meta: "SQG · residual",
   },
   {
+    id: "sqg-posterior",
+    title: "SQG: Posterior",
+    src: "animation/sqg_posterior.mp4",
+    caption:
+      "Posterior distribution over the Surface Quasi-Geostrophic state conditioned on the observations.",
+    meta: "SQG · posterior",
+  },
+  {
+    id: "sqg-blurring",
+    title: "SQG: Blurring",
+    src: "animation/sqg_blurring.mp4",
+    caption:
+      "Progressive blurring of the Surface Quasi-Geostrophic state, illustrating the forward noising process.",
+    meta: "SQG · blurring",
+  },
+  {
     id: "era5-ensemble",
     title: "ERA5 Ensemble",
     src: "animation/era5_ensemble.mp4",
