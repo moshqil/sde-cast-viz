@@ -37,7 +37,7 @@ const FIGURES = [
   {
     id: "era5-ensemble",
     title: "ERA5 Ensemble",
-    src: "animation/era5_ensemble.gif",
+    src: "animation/era5_ensemble.mp4",
     caption:
       "Ensemble forecast on ERA5, showing the spread of members over the forecast horizon.",
     meta: "ERA5 · ensemble",
@@ -45,7 +45,7 @@ const FIGURES = [
   {
     id: "era5-intermediate",
     title: "ERA5: 15 min Steps Intermediate Predictions",
-    src: "animation/era5_intermediate.gif",
+    src: "animation/era5_intermediate.mp4",
     caption:
       "Intermediate predictions of the model at 15-minute time steps.",
     meta: "ERA5 · 15 min intermediate steps",
@@ -53,7 +53,7 @@ const FIGURES = [
   {
     id: "era5-15days",
     title: "ERA5: 15 Days Rollout",
-    src: "animation/era5_15days.gif",
+    src: "animation/era5_15days.mp4",
     caption:
       "Autoregressive rollout on ERA5 over a 15-day forecast horizon.",
     meta: "ERA5 · 15-day rollout",
@@ -61,7 +61,7 @@ const FIGURES = [
   {
     id: "era5-artifacts",
     title: "ERA5: Artifacts of 2 Hour Model",
-    src: "animation/era5_failure.gif",
+    src: "animation/era5_failure.mp4",
     caption:
       "Failure case illustrating artifacts produced by the 2-hour model.",
     meta: "ERA5 · 2-hour model artifacts",
