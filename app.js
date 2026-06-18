@@ -33,11 +33,24 @@
 
     const media = document.createElement("div");
     media.className = "figure-media";
-    const img = document.createElement("img");
-    img.src = fig.src;
-    img.alt = fig.title;
-    img.loading = "lazy";
-    media.appendChild(img);
+    if (/\.(mp4|webm|mov)$/i.test(fig.src)) {
+      // Video sources autoplay silently and loop, like a GIF.
+      const video = document.createElement("video");
+      video.src = fig.src;
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.playsInline = true;
+      video.controls = true;
+      video.setAttribute("preload", "metadata");
+      media.appendChild(video);
+    } else {
+      const img = document.createElement("img");
+      img.src = fig.src;
+      img.alt = fig.title;
+      img.loading = "lazy";
+      media.appendChild(img);
+    }
     section.appendChild(media);
 
     if (fig.meta) {

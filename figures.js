@@ -11,6 +11,30 @@
 
 const FIGURES = [
   {
+    id: "sqg-ensemble",
+    title: "SQG Ensemble",
+    src: "animation/sqg_ensemble.mp4",
+    caption:
+      "Ensemble forecast on the Surface Quasi-Geostrophic system, showing the spread of members over the forecast horizon.",
+    meta: "SQG · ensemble",
+  },
+  {
+    id: "sqg-600h",
+    title: "SQG: 600 Hour Rollout",
+    src: "animation/sqg_600h.mp4",
+    caption:
+      "Autoregressive rollout on the Surface Quasi-Geostrophic system over a 600-hour forecast horizon.",
+    meta: "SQG · 600-hour rollout",
+  },
+  {
+    id: "sqg-residual",
+    title: "SQG: Residual",
+    src: "animation/sqg_residual.mp4",
+    caption:
+      "Residual between the SDE-Cast forecast and the ground-truth trajectory on the Surface Quasi-Geostrophic system.",
+    meta: "SQG · residual",
+  },
+  {
     id: "era5-ensemble",
     title: "ERA5 Ensemble",
     src: "animation/era5_ensemble.gif",
