@@ -1,18 +1,22 @@
 :root {
-  /* Atmospheric palette — twilight sky / pressure-field tones */
-  --bg: #0d1b2a;
-  --bg-gradient-top: #1b3a5b;
-  --bg-gradient-bottom: #0a1622;
-  --bg-elevated: #14283d;
-  --border: #244563;
-  --text: #e6eef5;
-  --text-muted: #8fa8bf;
-  --accent: #5fb3d4;        /* sky cyan */
-  --accent-warm: #e8a04f;   /* sun / warm-front amber */
-  --accent-dim: #3d7a96;
+  /* Witchy storm palette — bruised indigo, storm-purple, lightning */
+  --bg: #0a0612;
+  --bg-gradient-top: #1f1133;       /* deep storm violet */
+  --bg-gradient-mid: #140a24;
+  --bg-gradient-bottom: #06040d;    /* near-black */
+  --bg-elevated: #160d28;
+  --border: #3a2456;
+  --border-glow: #5b3a8a;
+  --text: #ece4f5;
+  --text-muted: #9d8bb8;
+  --accent: #b794f6;        /* witchy lavender */
+  --accent-bright: #d6bcff; /* lightning highlight */
+  --accent-lightning: #e8d5ff;
+  --accent-eerie: #6ee7b7;  /* eerie witch-fire green */
+  --accent-dim: #6b4d99;
   --sidebar-width: 240px;
   --max-content: 900px;
-  --font-display: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -23,9 +27,10 @@
 }
 
 html {
-  /* fixed gradient layer that always covers the viewport, behind everything */
   background: var(--bg);
-  background: linear-gradient(180deg, var(--bg-gradient-top) 0%, var(--bg-gradient-bottom) 70%) fixed;
+  background:
+    radial-gradient(ellipse at 70% 0%, rgba(91, 58, 138, 0.35) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-gradient-top) 0%, var(--bg-gradient-mid) 35%, var(--bg-gradient-bottom) 75%) fixed;
   min-height: 100%;
 }
 
@@ -46,42 +51,55 @@ body {
 /* Header */
 .site-header {
   border-bottom: 1px solid var(--border);
-  padding: 2.5rem 0;
-  background: rgba(10, 22, 34, 0.55);
-  backdrop-filter: blur(8px);
+  padding: 3rem 0;
+  background: rgba(10, 6, 18, 0.5);
+  backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
 }
 
-/* subtle isobar-like contour lines in the header */
-.site-header::after {
+/* layered storm clouds + a faint lightning fork in the header */
+.site-header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: repeating-radial-gradient(
-    circle at 80% 120%,
-    transparent 0,
-    transparent 38px,
-    rgba(95, 179, 212, 0.06) 39px,
-    rgba(95, 179, 212, 0.06) 40px
-  );
+  background-image:
+    radial-gradient(ellipse 120% 80% at 20% 130%, rgba(58, 36, 86, 0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 70% at 85% 120%, rgba(91, 58, 138, 0.4) 0%, transparent 55%);
   pointer-events: none;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  top: -5%;
+  right: 14%;
+  width: 60px;
+  height: 115%;
+  background: linear-gradient(180deg, transparent 0%, var(--accent-lightning) 30%, var(--accent-bright) 50%, var(--accent-lightning) 70%, transparent 100%);
+  filter: drop-shadow(0 0 8px rgba(214, 188, 255, 0.8));
+  opacity: 0.7;
+  pointer-events: none;
+  /* a crooked lightning fork */
+  clip-path: polygon(52% 0%, 60% 0%, 40% 38%, 56% 38%, 30% 78%, 46% 44%, 32% 44%, 52% 0%);
 }
 
 .site-header h1 {
   font-family: var(--font-display);
-  font-size: 2.6rem;
+  font-size: 2.7rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
   color: var(--text);
   position: relative;
+  text-shadow: 0 0 24px rgba(183, 148, 246, 0.45);
 }
 
 .subtitle {
   color: var(--accent);
   margin-top: 0.4rem;
   font-size: 1.05rem;
-  font-weight: 400;
+  font-style: italic;
+  font-family: var(--font-display);
   letter-spacing: 0.01em;
   position: relative;
 }
@@ -94,8 +112,8 @@ body {
   width: var(--sidebar-width);
   height: 100vh;
   border-right: 1px solid var(--border);
-  background: rgba(10, 22, 34, 0.65);
-  backdrop-filter: blur(8px);
+  background: rgba(10, 6, 18, 0.7);
+  backdrop-filter: blur(10px);
   overflow-y: auto;
   padding-top: 2rem;
 }
@@ -106,7 +124,7 @@ body {
 
 .nav-label {
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   font-size: 0.72rem;
   color: var(--accent);
   margin-bottom: 1rem;
@@ -133,17 +151,19 @@ body {
 }
 
 #nav-list a:hover {
-  color: var(--text);
-  background: rgba(95, 179, 212, 0.1);
+  color: var(--accent-bright);
+  background: rgba(183, 148, 246, 0.1);
+  text-shadow: 0 0 10px rgba(214, 188, 255, 0.5);
 }
 
 #nav-list a.active {
-  color: var(--accent);
+  color: var(--accent-bright);
   border-left-color: var(--accent);
-  background: rgba(95, 179, 212, 0.08);
+  background: rgba(183, 148, 246, 0.08);
+  box-shadow: -1px 0 12px -2px rgba(183, 148, 246, 0.5);
 }
 
-/* Main content — offset for sidebar */
+/* Main content */
 .content {
   margin-left: var(--sidebar-width);
   padding: 3rem 0;
@@ -163,11 +183,11 @@ body {
 
 .figure h2 {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
   color: var(--text);
+  text-shadow: 0 0 16px rgba(183, 148, 246, 0.3);
 }
 
 .figure .caption {
@@ -181,11 +201,21 @@ body {
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
-  background: #05111d;
+  background: #05030a;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.6),
+    0 0 24px -6px rgba(91, 58, 138, 0.5);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.figure-media:hover {
+  border-color: var(--border-glow);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.6),
+    0 0 32px -2px rgba(183, 148, 246, 0.55);
 }
 
 .figure-media img {
@@ -197,8 +227,11 @@ body {
 .figure-meta {
   margin-top: 0.75rem;
   font-size: 0.82rem;
-  color: var(--accent-warm);
-  letter-spacing: 0.02em;
+  color: var(--accent-eerie);
+  letter-spacing: 0.03em;
+  font-family: var(--font-display);
+  font-style: italic;
+  text-shadow: 0 0 10px rgba(110, 231, 183, 0.35);
 }
 
 /* Footer */
@@ -208,7 +241,7 @@ body {
   color: var(--text-muted);
   font-size: 0.88rem;
   text-align: center;
-  background: rgba(10, 22, 34, 0.4);
+  background: rgba(10, 6, 18, 0.5);
 }
 
 /* Responsive */
