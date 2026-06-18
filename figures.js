@@ -11,28 +11,36 @@
 
 const FIGURES = [
   {
-    id: "rollout-sqg",
-    title: "Forecast Rollout — SQG",
-    src: "gifs/rollout_sqg.gif",
+    id: "era5-ensemble",
+    title: "ERA5 Ensemble",
+    src: "animation/era5_ensemble.gif",
     caption:
-      "Autoregressive rollout of the SDE-Cast forecast on the Surface Quasi-Geostrophic system, compared against the ground-truth trajectory.",
-    meta: "SQG · 48-step rollout",
+      "Ensemble forecast on ERA5, showing the spread of members over the forecast horizon.",
+    meta: "ERA5 · ensemble",
   },
   {
-    id: "ensemble-spread",
-    title: "Ensemble Spread",
-    src: "gifs/ensemble_spread.gif",
+    id: "era5-intermediate",
+    title: "ERA5: 15 min Steps Intermediate Predictions",
+    src: "animation/era5_intermediate.gif",
     caption:
-      "Evolution of ensemble members over the forecast horizon, illustrating how spread grows with lead time.",
-    meta: "16-member ensemble",
+      "Intermediate predictions of the model at 15-minute time steps.",
+    meta: "ERA5 · 15 min intermediate steps",
   },
   {
-    id: "energy-spectrum",
-    title: "Energy Spectrum Evolution",
-    src: "gifs/energy_spectrum.gif",
+    id: "era5-15days",
+    title: "ERA5: 15 Days Rollout",
+    src: "animation/era5_15days.gif",
     caption:
-      "Radial power spectrum of the forecast over time, compared to the reference spectrum to assess spectral fidelity.",
-    meta: "Radial power spectrum",
+      "Autoregressive rollout on ERA5 over a 15-day forecast horizon.",
+    meta: "ERA5 · 15-day rollout",
+  },
+  {
+    id: "era5-artifacts",
+    title: "ERA5: Artifacts of 2 Hour Model",
+    src: "animation/era5_failure.gif",
+    caption:
+      "Failure case illustrating artifacts produced by the 2-hour model.",
+    meta: "ERA5 · 2-hour model artifacts",
   },
   // Add more entries here ...
 ];
