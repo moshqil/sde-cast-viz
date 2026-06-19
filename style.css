@@ -69,7 +69,7 @@ body {
   pointer-events: none;
 }
 
-/* Storm decoration overlay (lightning options live in storm.js) */
+/* Storm decoration overlay — scattered bolts that flash individually */
 .storm-deco {
   position: absolute;
   inset: 0;
@@ -83,55 +83,26 @@ body {
   height: 100%;
 }
 
-@keyframes flash {
-  0%, 92%, 100% { opacity: 0.25; }
-  94% { opacity: 1; }
-  96% { opacity: 0.4; }
-  98% { opacity: 0.9; }
-}
-@keyframes rainfall {
-  from { transform: translateY(-20%); }
-  to   { transform: translateY(20%); }
+/* Each bolt is dark most of the time, then briefly strikes. Different
+   durations + delays per bolt so they fire individually, once in a while. */
+.storm-deco .bolt { opacity: 0; }
+.storm-deco .b1 { animation: strike 7.5s ease-out infinite;  animation-delay: 0s;   }
+.storm-deco .b2 { animation: strike 9.5s ease-out infinite;  animation-delay: 2.7s; }
+.storm-deco .b3 { animation: strike 8.3s ease-out infinite;  animation-delay: 5.1s; }
+.storm-deco .b4 { animation: strike 10.5s ease-out infinite; animation-delay: 1.4s; }
+.storm-deco .b5 { animation: strike 8.9s ease-out infinite;  animation-delay: 6.3s; }
+
+@keyframes strike {
+  0%, 100% { opacity: 0; }
+  3%  { opacity: 1; }
+  6%  { opacity: 0.2; }
+  9%  { opacity: 0.85; }
+  14% { opacity: 0; }
 }
 
-/* Temporary picker — flip through the options, then I'll lock one in */
-.storm-switch {
-  position: absolute;
-  top: 0.75rem;
-  right: 1rem;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-family: var(--font-sans);
-}
-.storm-hint {
-  font-size: 0.66rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-right: 0.2rem;
-}
-.storm-switch button {
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 5px;
-  border: 1px solid var(--border);
-  background: rgba(10, 6, 18, 0.5);
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: all 0.15s ease;
-}
-.storm-switch button:hover {
-  color: var(--accent-bright);
-  border-color: var(--border-glow);
-}
-.storm-switch button.active {
-  color: var(--accent-bright);
-  border-color: var(--accent);
-  background: rgba(183, 148, 246, 0.12);
-  box-shadow: 0 0 10px -2px rgba(183, 148, 246, 0.6);
+/* Respect users who prefer no motion: show bolts faintly, no flashing. */
+@media (prefers-reduced-motion: reduce) {
+  .storm-deco .bolt { opacity: 0.45; animation: none; }
 }
 
 .site-header h1 {

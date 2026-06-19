@@ -9,6 +9,23 @@
 </head>
 <body>
   <header class="site-header">
+    <div class="storm-deco">
+      <svg viewBox="0 0 1100 220" preserveAspectRatio="xMaxYMid slice" fill="none">
+        <g filter="url(#stormGlow)">
+          <path class="bolt b1" d="M690 -10 L675 60 L692 60 L668 140 L683 80 L665 80 L690 -10Z" fill="#e8d5ff"/>
+          <path class="bolt b2" d="M760 -10 L742 70 L765 70 L735 170 L752 92 L730 92 L760 -10Z" fill="#d6bcff"/>
+          <path class="bolt b3" d="M835 0 L818 75 L838 75 L812 165 L828 95 L808 95 L835 0Z" fill="#e8d5ff"/>
+          <path class="bolt b4" d="M905 -10 L882 100 L912 100 L865 240 L900 120 L872 120 L905 -10Z" fill="#e8d5ff"/>
+          <path class="bolt b5" d="M1010 10 L995 80 L1014 80 L988 165 L1003 98 L985 98 L1010 10Z" fill="#d6bcff"/>
+        </g>
+        <defs>
+          <filter id="stormGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4"/>
+            <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+      </svg>
+    </div>
     <div class="container">
       <h1>SDE-Cast</h1>
       <p class="subtitle">SDE Matching with Highly Informative Observations</p>
@@ -38,6 +55,5 @@
 
   <script src="figures.js"></script>
   <script src="app.js"></script>
-  <script src="storm.js"></script>
 </body>
 </html>
