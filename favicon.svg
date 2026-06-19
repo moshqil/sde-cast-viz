@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- storm cloud + lightning, matching the site's witchy storm palette -->
+  <rect width="32" height="32" rx="7" fill="#140a24"/>
+  <g>
+    <!-- cloud -->
+    <path d="M9 21.5a4.4 4.4 0 0 1-.5-8.77 5.8 5.8 0 0 1 11.2-1.43A4.6 4.6 0 0 1 23 21.5z"
+          fill="#6b4d99" stroke="#b794f6" stroke-width="1.1" stroke-linejoin="round"/>
+    <!-- lightning bolt -->
+    <path d="M16.2 16.2l-3.6 5.2h3l-1.4 5 5.6-7h-3.2l2-3.2z"
+          fill="#e8d5ff" stroke="#d6bcff" stroke-width="0.5" stroke-linejoin="round"/>
+  </g>
+</svg>
