@@ -15,7 +15,7 @@ const FIGURES = [
     title: "SQG Ensemble",
     src: "animation/sqg_ensemble.mp4",
     caption:
-      "Ensemble forecast on the Surface Quasi-Geostrophic system, showing the spread of members over the forecast horizon.",
+      "SQG ensemble rollout — spread of members from a shared initial state.",
     meta: "SQG · ensemble",
   },
   {
@@ -23,7 +23,7 @@ const FIGURES = [
     title: "SQG: 600 Hour Rollout",
     src: "animation/sqg_600h.mp4",
     caption:
-      "Autoregressive rollout on the Surface Quasi-Geostrophic system over a 600-hour forecast horizon.",
+      "Long-range SQG rollout over 600 hours. As the model is trained on 6-hour lead time, this visualisation shows the stability and consistency of the learned dynamics.",
     meta: "SQG · 600-hour rollout",
   },
   {
@@ -31,7 +31,7 @@ const FIGURES = [
     title: "SQG: Residual",
     src: "animation/sqg_residual.mp4",
     caption:
-      "Residual between the SDE-Cast forecast and the ground-truth trajectory on the Surface Quasi-Geostrophic system.",
+      "Residual of forecast and ground truth on SQG, showing the difference between ground truth/prediction at time t and starting point.",
     meta: "SQG · residual",
   },
   {
@@ -39,7 +39,7 @@ const FIGURES = [
     title: "SQG: Posterior",
     src: "animation/sqg_posterior.mp4",
     caption:
-      "Posterior distribution over the Surface Quasi-Geostrophic state conditioned on the observations.",
+      "SQG learnable interpolation. The learned interpolation is represented by it's components: linear interpolation and a learnable correction of Gaussian form with learnable mean and std. The figure shows how interpolant is constrained to match observation at 0 hours and 6 hours (endpoints) and in the middle the learnable correction matches the difference between ground truth and linear interpolation (bottom row). This shows that the model is behaving as intended and learnable correction learnt non-linear dynamics.",
     meta: "SQG · posterior",
   },
   {
@@ -47,7 +47,7 @@ const FIGURES = [
     title: "SQG: Blurring",
     src: "animation/sqg_blurring.mp4",
     caption:
-      "Progressive blurring of the Surface Quasi-Geostrophic state, illustrating the forward noising process.",
+      "SQG sparse-data failure mode. SDE-Cast is trained on 12-hour lead time but inferenced more frequently. The model removes the high-frequency details (blur at 6 hours) and then restores them. Spectral loss is partially fixing this issue, but as a byproduct adds some high-frequency unrealistic features.",
     meta: "SQG · blurring",
   },
   {
@@ -55,7 +55,7 @@ const FIGURES = [
     title: "ERA5 Ensemble",
     src: "animation/era5_ensemble.mp4",
     caption:
-      "Ensemble forecast on ERA5, showing the spread of members over the forecast horizon.",
+      "Ensemble rollouts (2 days). Several ERA5 ensemble members rolled out over 48 hours from a shared initial state.",
     meta: "ERA5 · ensemble",
   },
   {
@@ -63,7 +63,7 @@ const FIGURES = [
     title: "ERA5: 15 min Steps Intermediate Predictions",
     src: "animation/era5_intermediate.mp4",
     caption:
-      "Intermediate predictions of the model at 15-minute time steps.",
+      "Animation illustrating continuous intermediate predictions without any visible artifacts. SDE-Cast is trained at 1 hour lead time, but inferenced every 15 minutes. As there is no ground truth for intermediate predictions, the ground truth animation is slower.",
     meta: "ERA5 · 15 min intermediate steps",
   },
   {
@@ -71,7 +71,7 @@ const FIGURES = [
     title: "ERA5: 15 Days Rollout",
     src: "animation/era5_15days.mp4",
     caption:
-      "Autoregressive rollout on ERA5 over a 15-day forecast horizon.",
+      "Animation illustrating long-range stability of SDE-Cast. A rollout of 15 days is produced by the model trained on 1 hour lead time.",
     meta: "ERA5 · 15-day rollout",
   },
   {
@@ -79,7 +79,7 @@ const FIGURES = [
     title: "ERA5: Artifacts of 2 Hour Model",
     src: "animation/era5_failure.mp4",
     caption:
-      "Failure case illustrating artifacts produced by the 2-hour model.",
+      "Sparse-data failure mode (2-hour ERA5 model). The intermediate flashing artifacts are similar to the artifacts visible on SQG.",
     meta: "ERA5 · 2-hour model artifacts",
   },
   // Add more entries here ...
