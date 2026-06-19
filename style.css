@@ -83,21 +83,24 @@ body {
   height: 100%;
 }
 
-/* Each bolt is dark most of the time, then briefly strikes. Different
-   durations + delays per bolt so they fire individually, once in a while. */
+/* Each bolt is dark most of the time, then briefly strikes. All share ONE
+   period and are evenly phase-shifted (16s / 5 bolts = one strike every 3.2s),
+   so only one fires at a time and there's a clear gap between firings. */
 .storm-deco .bolt { opacity: 0; }
-.storm-deco .b1 { animation: strike 7.5s ease-out infinite;  animation-delay: 0s;   }
-.storm-deco .b2 { animation: strike 9.5s ease-out infinite;  animation-delay: 2.7s; }
-.storm-deco .b3 { animation: strike 8.3s ease-out infinite;  animation-delay: 5.1s; }
-.storm-deco .b4 { animation: strike 10.5s ease-out infinite; animation-delay: 1.4s; }
-.storm-deco .b5 { animation: strike 8.9s ease-out infinite;  animation-delay: 6.3s; }
+.storm-deco .b1 { animation: strike 16s linear infinite; animation-delay: 0s;     }
+.storm-deco .b2 { animation: strike 16s linear infinite; animation-delay: -3.2s;  }
+.storm-deco .b3 { animation: strike 16s linear infinite; animation-delay: -6.4s;  }
+.storm-deco .b4 { animation: strike 16s linear infinite; animation-delay: -9.6s;  }
+.storm-deco .b5 { animation: strike 16s linear infinite; animation-delay: -12.8s; }
 
+/* The flash occupies ~9% of the period (~1.4s); the rest is dark. Since the
+   flash is shorter than the 20% slot between phases, strikes never overlap. */
 @keyframes strike {
   0%, 100% { opacity: 0; }
-  3%  { opacity: 1; }
-  6%  { opacity: 0.2; }
-  9%  { opacity: 0.85; }
-  14% { opacity: 0; }
+  1.5% { opacity: 1; }
+  4%   { opacity: 0.2; }
+  6.5% { opacity: 0.8; }
+  9%   { opacity: 0; }
 }
 
 /* Respect users who prefer no motion: show bolts faintly, no flashing. */
