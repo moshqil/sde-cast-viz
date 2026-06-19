@@ -4,6 +4,14 @@
   const navList = document.getElementById("nav-list");
   const gallery = document.getElementById("gallery");
 
+  // Page description (from figures.js)
+  if (typeof PAGE_DESCRIPTION === "string" && PAGE_DESCRIPTION) {
+    const intro = document.createElement("p");
+    intro.className = "page-description";
+    intro.textContent = PAGE_DESCRIPTION;
+    gallery.appendChild(intro);
+  }
+
   // Build figures + nav
   FIGURES.forEach((fig) => {
     // Sidebar link

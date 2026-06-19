@@ -1,0 +1,33 @@
+TY  - JOUR
+AU  - Bodnar, Cristian
+AU  - Bruinsma, Wessel P.
+AU  - Lucic, Ana
+AU  - Stanley, Megan
+AU  - Allen, Anna
+AU  - Brandstetter, Johannes
+AU  - Garvan, Patrick
+AU  - Riechert, Maik
+AU  - Weyn, Jonathan A.
+AU  - Dong, Haiyu
+AU  - Gupta, Jayesh K.
+AU  - Thambiratnam, Kit
+AU  - Archibald, Alexander T.
+AU  - Wu, Chun-Chieh
+AU  - Heider, Elizabeth
+AU  - Welling, Max
+AU  - Turner, Richard E.
+AU  - Perdikaris, Paris
+PY  - 2025
+DA  - 2025/05/01
+TI  - A foundation model for the Earth system
+JO  - Nature
+SP  - 1180
+EP  - 1187
+VL  - 641
+IS  - 8065
+AB  - Reliable forecasting of the Earth system is essential for mitigating natural disasters and supporting human progress. Traditional numerical models, although powerful, are extremely computationally expensive1. Recent advances in artificial intelligence (AI) have shown promise in improving both predictive performance and efficiency2,3, yet their potential remains underexplored in many Earth system domains. Here we introduce Aurora, a large-scale foundation model trained on more than one million hours of diverse geophysical data. Aurora outperforms operational forecasts in predicting air quality, ocean waves, tropical cyclone tracks and high-resolution weather, all at orders of magnitude lower computational cost. With the ability to be fine-tuned for diverse applications at modest expense, Aurora represents a notable step towards democratizing accurate and efficient Earth system predictions. These results highlight the transformative potential of AI in environmental forecasting and pave the way for broader accessibility to high-quality climate and weather information.
+SN  - 1476-4687
+UR  - https://doi.org/10.1038/s41586-025-09005-y
+DO  - 10.1038/s41586-025-09005-y
+ID  - Bodnar2025
+ER  - 
